@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>85D476D8-E7D0-43C8-94B5-6A68305D557F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EFD53F9F-7698-48A8-AD39-7CABA129869A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Mark Riechers</string>
+	<key>description</key>
+	<string>Search content on the BFI Flickr channel</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>BFI Photo Search</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>https://www.flickr.com/search?user_id=49614480%40N08&amp;sort=relevance&amp;text={query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>EFD53F9F-7698-48A8-AD39-7CABA129869A</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>bfiphoto</string>
+				<key>text</key>
+				<string>Search BFI Flickr Channel</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>85D476D8-E7D0-43C8-94B5-6A68305D557F</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>85D476D8-E7D0-43C8-94B5-6A68305D557F</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>EFD53F9F-7698-48A8-AD39-7CABA129869A</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>bfi.uchicago.edu</string>
+</dict>
+</plist>

@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.groenewege.trello-next</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>0442D773-2E45-40E3-B79E-6879C09EDCB8</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BBAACDB8-006A-4F21-832F-16FA411C1103</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>1FFEEC47-3E9F-4AF5-A872-024C2A5BEC7D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>95FAB3DC-4487-447B-A1EC-3DC60E357A4D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>3FAF79E5-1A5E-40EA-A954-331DE76CF0BA</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1FFEEC47-3E9F-4AF5-A872-024C2A5BEC7D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>A142C851-697F-4310-82D2-0FDC8D87D315</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C649AA59-3E58-492B-80E3-6CA9E488FC6B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>A14827F9-C328-4203-9976-E84A2E6A8B6B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>365EE568-9961-45BE-B438-046672A57A0D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>A27460F6-EC09-4577-9807-E03F3C88D732</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>BBAACDB8-006A-4F21-832F-16FA411C1103</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BD2245DE-C519-47BB-9947-BE1A44C7C54F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>C9C95CC4-2AD4-45E4-961F-B21D31E5D56F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A14827F9-C328-4203-9976-E84A2E6A8B6B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>CDC96809-6D7C-4DBB-B137-6BDC531189C3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EB09346B-4D38-49A1-985A-F1C06661A3CC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>F9FDA5B7-EA7A-4511-9309-1FE03B10C7D6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1FC70182-D96C-4FE1-AEE8-C92DA09BBBA9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Gunther Groenewege</string>
+	<key>description</key>
+	<string>Get upcoming Trello cards across all board</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Trello Next</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>EB09346B-4D38-49A1-985A-F1C06661A3CC</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>next</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>loading Trello cards</string>
+				<key>script</key>
+				<string># specify the name of the list (across all boards) that you want to load
+# leave blank if you do not wish to filter by list
+
+listname='next'
+
+# specify a due date search term for the cards you wish to load
+# the options are 'day', 'week', 'month' or 'overdue'
+# leave blank if you do not wish to filter by due date
+
+due=''
+
+
+
+php -f script.php -- "${listname};${due}"</string>
+				<key>subtext</key>
+				<string>Retrieve important tasks from Trello</string>
+				<key>title</key>
+				<string>Upcoming Trello Cards</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>CDC96809-6D7C-4DBB-B137-6BDC531189C3</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>list</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>1</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>loading Trello cards</string>
+				<key>script</key>
+				<string>listname={query}
+
+php -f script.php -- "${listname};${due}"</string>
+				<key>subtext</key>
+				<string>Retrieve tasks from Trello lists</string>
+				<key>title</key>
+				<string>Trello cards from list</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>A142C851-697F-4310-82D2-0FDC8D87D315</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>C649AA59-3E58-492B-80E3-6CA9E488FC6B</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>1FC70182-D96C-4FE1-AEE8-C92DA09BBBA9</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>due</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>1</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>loading Trello cards</string>
+				<key>script</key>
+				<string>due={query}
+
+php -f script.php -- "${listname};${due}"</string>
+				<key>subtext</key>
+				<string>Retrieve tasks from Trello boards</string>
+				<key>title</key>
+				<string>Trello cards by due date</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>F9FDA5B7-EA7A-4511-9309-1FE03B10C7D6</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>getkey</string>
+				<key>subtext</key>
+				<string>Authorise Trello Next for Alfred to use your Trello account.</string>
+				<key>text</key>
+				<string>Trello setup</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>0442D773-2E45-40E3-B79E-6879C09EDCB8</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>https://trello.com/1/connect?key=ed452d33851c850d72425e1a5ec0cfb5&amp;name=Trello%20Next%20for%20Alfred&amp;response_type=token&amp;scope=read&amp;expiration=never</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>BBAACDB8-006A-4F21-832F-16FA411C1103</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>Let Trello Next for Alfred use your account?</string>
+				<key>title</key>
+				<string>Trello</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>BD2245DE-C519-47BB-9947-BE1A44C7C54F</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>savekey</string>
+				<key>subtext</key>
+				<string>Save your token to access your Trello boards</string>
+				<key>text</key>
+				<string>Trello setup</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>3FAF79E5-1A5E-40EA-A954-331DE76CF0BA</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>100</integer>
+				<key>script</key>
+				<string>require( 'workflows.php' );
+$w = new Workflows();
+
+exec( 'touch settings.plist' );
+
+$token = "{query}";
+$w-&gt;set( 'token', $token, 'settings.plist' );
+
+echo 'Saved token : '.$token;
+</string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>1FFEEC47-3E9F-4AF5-A872-024C2A5BEC7D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>title</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>95FAB3DC-4487-447B-A1EC-3DC60E357A4D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>debug info</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>365EE568-9961-45BE-B438-046672A57A0D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>debug</string>
+				<key>text</key>
+				<string>debug Trello</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>C9C95CC4-2AD4-45E4-961F-B21D31E5D56F</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string># specify the name of the list (across all boards) that you want to load
+# leave blank if you do not wish to filter by list
+
+listname='next'
+
+# specify a due date search term for the cards you wish to load
+# the options are 'day', 'week', 'month' or 'overdue'
+# leave blank if you do not wish to filter by due date
+
+due=''
+
+
+
+php -f script.php -- "${listname};${due}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>A14827F9-C328-4203-9976-E84A2E6A8B6B</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>A27460F6-EC09-4577-9807-E03F3C88D732</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>0442D773-2E45-40E3-B79E-6879C09EDCB8</key>
+		<dict>
+			<key>ypos</key>
+			<real>430</real>
+		</dict>
+		<key>1FC70182-D96C-4FE1-AEE8-C92DA09BBBA9</key>
+		<dict>
+			<key>ypos</key>
+			<real>290</real>
+		</dict>
+		<key>1FFEEC47-3E9F-4AF5-A872-024C2A5BEC7D</key>
+		<dict>
+			<key>ypos</key>
+			<real>570</real>
+		</dict>
+		<key>365EE568-9961-45BE-B438-046672A57A0D</key>
+		<dict>
+			<key>ypos</key>
+			<real>720</real>
+		</dict>
+		<key>3FAF79E5-1A5E-40EA-A954-331DE76CF0BA</key>
+		<dict>
+			<key>ypos</key>
+			<real>570</real>
+		</dict>
+		<key>95FAB3DC-4487-447B-A1EC-3DC60E357A4D</key>
+		<dict>
+			<key>ypos</key>
+			<real>570</real>
+		</dict>
+		<key>A142C851-697F-4310-82D2-0FDC8D87D315</key>
+		<dict>
+			<key>ypos</key>
+			<real>160</real>
+		</dict>
+		<key>A14827F9-C328-4203-9976-E84A2E6A8B6B</key>
+		<dict>
+			<key>ypos</key>
+			<real>780</real>
+		</dict>
+		<key>A27460F6-EC09-4577-9807-E03F3C88D732</key>
+		<dict>
+			<key>ypos</key>
+			<real>840</real>
+		</dict>
+		<key>BBAACDB8-006A-4F21-832F-16FA411C1103</key>
+		<dict>
+			<key>ypos</key>
+			<real>430</real>
+		</dict>
+		<key>BD2245DE-C519-47BB-9947-BE1A44C7C54F</key>
+		<dict>
+			<key>ypos</key>
+			<real>430</real>
+		</dict>
+		<key>C649AA59-3E58-492B-80E3-6CA9E488FC6B</key>
+		<dict>
+			<key>ypos</key>
+			<real>160</real>
+		</dict>
+		<key>C9C95CC4-2AD4-45E4-961F-B21D31E5D56F</key>
+		<dict>
+			<key>ypos</key>
+			<real>780</real>
+		</dict>
+		<key>CDC96809-6D7C-4DBB-B137-6BDC531189C3</key>
+		<dict>
+			<key>ypos</key>
+			<real>30</real>
+		</dict>
+		<key>EB09346B-4D38-49A1-985A-F1C06661A3CC</key>
+		<dict>
+			<key>ypos</key>
+			<real>30</real>
+		</dict>
+		<key>F9FDA5B7-EA7A-4511-9309-1FE03B10C7D6</key>
+		<dict>
+			<key>ypos</key>
+			<real>290</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://www.groenewege.com</string>
+</dict>
+</plist>
