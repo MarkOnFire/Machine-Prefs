@@ -11,6 +11,7 @@ Pushing system preferences to this repo to make setting up a new machine easier.
 * [Skype](https://www.skype.com/en/download)
 * [Focus](https://heyfocus.com/)
 * [Alfred](https://www.alfredapp.com/)
+* [BackBlaze](https://www.backblaze.com/) - once files are restored
 
 ##Via App Store
 * VLC
@@ -22,4 +23,7 @@ Pushing system preferences to this repo to make setting up a new machine easier.
 * Forklift
 * Toggl
 
-[BackBlaze](https://www.backblaze.com/) - once files are restored
+##Via Terminal
+TBD
+
+
