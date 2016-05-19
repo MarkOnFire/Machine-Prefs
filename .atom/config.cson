@@ -1,0 +1,14 @@
+"*":
+  core:
+    projectHome: "/Users/markriechers/developer"
+    themes: [
+      "one-dark-ui"
+      "firewatch-syntax"
+    ]
+  editor:
+    fontSize: 12
+    invisibles: {}
+  "exception-reporting":
+    userId: "e01d67ed-b37e-b0bb-43bb-6cf9fba0fcba"
+  welcome:
+    showOnStartup: false

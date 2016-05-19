@@ -1,0 +1,131 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+
+.php-debug {
+  overflow-y: hidden;
+  .php-debug-tab
+  {
+    flex:1;
+    overflow-y: scroll;
+  }
+  .tabs-wrapper {
+    
+  }
+  .breakpoint-line
+  {
+    padding-left: 5px;
+  }
+  .stack-frame-label
+  {
+
+  }
+  .stack-frame-filepath
+  {
+
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  ul {
+    padding-left: 15px;
+  }
+  .php-debug-watchpoints .type,
+  .context-variable-list-view .type {
+    padding-left: 1em;
+  }
+}
+
+.breakpoint-settings-view .setting-container atom-text-editor[mini] {
+  width: 100%;
+}
+.breakpoint-settings-view .setting-container .setting-action {
+  padding-left: .5em;
+  line-height: 2em;
+}
+
+atom-panel.modal .breakpoint-settings-view .setting-new atom-text-editor[mini] {
+  margin-bottom: .15em;
+}
+
+.breakpoint-settings-view .setting-container {
+  display:flex;
+  align-items: stretch;
+}
+
+.breakpoint-settings-view .close-icon,
+.php-debug-watchpoints .close-icon {
+  position: absolute;
+  top: 1px;
+  right: 10px;
+  cursor: default;
+  top: -1.2em;
+  right: 0;
+  z-index: 2;
+  padding: 0 0.8em;
+  height: 3em;
+  line-height: 3em;
+  text-align: center;
+  transform:scale(1);
+  transition:transform .08s;
+}
+
+.breakpoint-settings-view .close-icon:hover {
+  transform:scale(1.5);
+  transition:transform .08s;
+}
+
+.breakpoint-settings-view .close-icon:before,
+.php-debug-watchpoints .close-icon:before {
+  font-family: 'Octicons Regular';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+  font-size: 12px;
+  width: 12px;
+  height: 12px;
+  content: "\f081";
+}
+
+.php-debug-watchpoints .close-icon {
+  top: 0em;
+  right: 0;
+  height: 1em;
+  line-height: 1em;
+}
+
+.php-debug-watchpoints .close-icon:hover {
+  transform:scale(1.1);
+  transition:transform .08s;
+}
+
+.tabs-view {
+
+    display: flex;
+    height: 100%;
+    padding-bottom: 75px;
+}
+
+.tabs-view:nth-child(1) {
+  order: 0;
+}
+.tabs-view:nth-child(2) {
+  order: 1;
+}
+.tabs-view:nth-child(3) {
+  order: 2;
+}
+.tabs-view:nth-child(3) {
+  order: 3;
+}
+
+.php-debug-watchpoints .watch-item {
+  position:relative;
+}
