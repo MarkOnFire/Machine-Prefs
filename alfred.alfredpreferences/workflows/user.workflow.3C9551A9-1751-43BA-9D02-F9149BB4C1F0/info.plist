@@ -41,6 +41,7 @@
 					<string>/Applications/Slack.app</string>
 					<string>/Applications/Airmail 2.app</string>
 					<string>/Applications/Wunderlist.app</string>
+					<string>/Applications/TogglDesktop.app</string>
 				</array>
 				<key>toggle</key>
 				<false/>

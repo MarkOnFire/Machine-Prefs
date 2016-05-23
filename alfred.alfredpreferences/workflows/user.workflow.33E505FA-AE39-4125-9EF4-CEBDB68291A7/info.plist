@@ -63,7 +63,6 @@
 				<key>paths</key>
 				<array>
 					<string>/Applications/Atom.app</string>
-					<string>/Applications/MacDown.app</string>
 					<string>/Applications/Utilities/Terminal.app</string>
 				</array>
 				<key>toggle</key>
