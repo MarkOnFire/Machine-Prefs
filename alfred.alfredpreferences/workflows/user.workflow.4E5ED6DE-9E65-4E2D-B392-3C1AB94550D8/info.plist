@@ -8,11 +8,11 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
-		<key>19640AA2-79DB-498F-A741-B89FDC1D0229</key>
+		<key>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>B535E4B3-7F48-41D6-B5F5-59F1BABAC0B8</string>
+				<string>11D5721D-E45C-4D45-82C8-2CC370002271</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -21,48 +21,48 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>Mark Riechers</string>
+	<string></string>
 	<key>description</key>
-	<string>Add paper to research repository.</string>
+	<string></string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>New BFI Research</string>
+	<string>CNET Search</string>
 	<key>objects</key>
 	<array>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>plusspaces</key>
-				<false/>
-				<key>url</key>
-				<string>https://econresearch.uchicago.edu/node/add/research</string>
-				<key>utf8</key>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>cnet</string>
+				<key>text</key>
+				<string>Search CNET IDs</string>
+				<key>withspace</key>
 				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
+			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>B535E4B3-7F48-41D6-B5F5-59F1BABAC0B8</string>
+			<string>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>keyword</key>
-				<string>bfiresearch</string>
-				<key>text</key>
-				<string>Create new paper in research repository</string>
-				<key>withspace</key>
+				<key>plusspaces</key>
 				<false/>
+				<key>url</key>
+				<string>https://directory.uchicago.edu/individuals/results?utf8=%E2%9C%93&amp;name={query}&amp;organization=&amp;cnetid=</string>
+				<key>utf8</key>
+				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
+			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>19640AA2-79DB-498F-A741-B89FDC1D0229</string>
+			<string>11D5721D-E45C-4D45-82C8-2CC370002271</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -71,15 +71,15 @@
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>19640AA2-79DB-498F-A741-B89FDC1D0229</key>
+		<key>11D5721D-E45C-4D45-82C8-2CC370002271</key>
 		<dict>
 			<key>ypos</key>
-			<real>10</real>
+			<real>60</real>
 		</dict>
-		<key>B535E4B3-7F48-41D6-B5F5-59F1BABAC0B8</key>
+		<key>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</key>
 		<dict>
 			<key>ypos</key>
-			<real>10</real>
+			<real>60</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
