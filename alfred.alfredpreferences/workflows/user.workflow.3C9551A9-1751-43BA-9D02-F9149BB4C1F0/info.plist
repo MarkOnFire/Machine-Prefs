@@ -36,9 +36,7 @@
 				<key>paths</key>
 				<array>
 					<string>/Applications/Google Chrome.app</string>
-					<string>/Applications/Tweetbot.app</string>
 					<string>/Applications/Calendar.app</string>
-					<string>/Applications/Slack.app</string>
 					<string>/Applications/Airmail 2.app</string>
 					<string>/Applications/Wunderlist.app</string>
 					<string>/Applications/TogglDesktop.app</string>
