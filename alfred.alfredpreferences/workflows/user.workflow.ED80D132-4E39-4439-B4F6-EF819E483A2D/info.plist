@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.ikasch.letterboxdSearch</string>
+	<string></string>
 	<key>category</key>
 	<string>Internet</string>
 	<key>connections</key>
@@ -23,15 +23,36 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>Kim Schneider</string>
+	<string>Mark Riechers</string>
 	<key>description</key>
-	<string>Use keyword "lb" to open a search on letterboxd.com</string>
+	<string>Use keyword "beer" to open a search on untappd.com</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>open a search on letterboxd</string>
+	<string>beer search</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>beer</string>
+				<key>subtext</key>
+				<string>Use keyword "beer" to open a search on untappd</string>
+				<key>text</key>
+				<string>Search on untappd for {query}</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>F8C5D133-7C4D-44F2-845B-FAE1568A09E7</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -40,7 +61,7 @@
 				<key>spaces</key>
 				<string>+</string>
 				<key>url</key>
-				<string>http://letterboxd.com/search/{query}/</string>
+				<string>https://untappd.com/search?q={query}</string>
 				<key>utf8</key>
 				<true/>
 			</dict>
@@ -48,27 +69,6 @@
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>667625E3-8575-4799-9786-DBC6628C6D39</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>film</string>
-				<key>subtext</key>
-				<string>Use keyword "film" to open a search on letterboxd.com</string>
-				<key>text</key>
-				<string>Search on letterboxd for {query}</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>F8C5D133-7C4D-44F2-845B-FAE1568A09E7</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -93,6 +93,6 @@
 		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string>http://www.ikasch.de</string>
+	<string></string>
 </dict>
 </plist>

@@ -1,0 +1,61 @@
+{
+  "alfredtheme" : {
+    "result" : {
+      "textSpacing" : 4,
+      "subtext" : {
+        "size" : 11,
+        "colorSelected" : "#929292FF",
+        "font" : "Helvetica Neue Light",
+        "color" : "#FFFFFFFF"
+      },
+      "shortcut" : {
+        "size" : 16,
+        "colorSelected" : "#A6A6A6FF",
+        "font" : "Helvetica Neue Light",
+        "color" : "#B3B3B3FF"
+      },
+      "backgroundSelected" : "#0069D951",
+      "text" : {
+        "size" : 16,
+        "colorSelected" : "#D6D6D6FF",
+        "font" : "Helvetica",
+        "color" : "#EBEBEBFF"
+      },
+      "iconPaddingHorizontal" : 5,
+      "paddingVertical" : 4,
+      "iconSize" : 40
+    },
+    "search" : {
+      "paddingVertical" : 2,
+      "background" : "#0000008E",
+      "spacing" : 10,
+      "text" : {
+        "size" : 32,
+        "colorSelected" : "#000000FF",
+        "font" : "Helvetica",
+        "color" : "#EBEBEBFF"
+      },
+      "backgroundSelected" : "#B2D7FFFF"
+    },
+    "window" : {
+      "color" : "#76D6FF33",
+      "paddingHorizontal" : 10,
+      "width" : 560,
+      "borderPadding" : 10,
+      "borderColor" : "#00000000",
+      "blur" : 0,
+      "roundness" : 3,
+      "paddingVertical" : 10
+    },
+    "credit" : "@macfixer",
+    "separator" : {
+      "color" : "#00000000",
+      "thickness" : 1
+    },
+    "scrollbar" : {
+      "color" : "#00000019",
+      "thickness" : 2
+    },
+    "name" : "Iced (v2)"
+  }
+}

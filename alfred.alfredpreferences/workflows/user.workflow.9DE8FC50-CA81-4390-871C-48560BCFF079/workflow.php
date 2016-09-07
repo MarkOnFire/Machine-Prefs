@@ -5,7 +5,7 @@ require 'curl.php';
 
 class Workflow
 {
-    const VERSION = '2e0fa58352936d1ceb5cdaab12cfcf2d61ebe333';
+    const VERSION = '1.4.1';
     const BUNDLE = 'de.gh01.alfred.github';
     const DEFAULT_CACHE_MAX_AGE = 10;
 
@@ -16,24 +16,38 @@ class Workflow
     /** @var PDOStatement[] */
     private static $statements = array();
 
+    private static $enterprise;
+    private static $baseUrl = 'https://github.com';
+    private static $apiUrl = 'https://api.github.com';
+    private static $gistUrl = 'https://gist.github.com';
+
     private static $query;
+    private static $hotkey;
     private static $items = array();
 
     private static $refreshUrls = array();
 
-    public static function init($query = null)
+    private static $debug = false;
+
+    public static function init($enterprise = false, $query = null, $hotkey = false)
     {
         date_default_timezone_set('UTC');
-        self::$query = $query;
-        if (isset($_ENV['alfred_workflow_data'])) {
-            $dataDir = $_ENV['alfred_workflow_data'];
-        } else {
-            $dataDir = (isset($_ENV['HOME']) ? $_ENV['HOME'] : $_SERVER['HOME']) . '/Library/Application Support/Alfred 2/Workflow Data/' . self::BUNDLE;
+
+        self::$enterprise = $enterprise;
+        self::$query = ltrim($query);
+        self::$hotkey = $hotkey;
+
+        $dataDir = getenv('alfred_workflow_data');
+        if (!$dataDir) {
+            $dataDir = getenv('HOME') . '/Library/Application Support/Alfred 3/Workflow Data/' . self::BUNDLE;
+            putenv('alfred_workflow_data="'.$dataDir.'"');
         }
         if (!is_dir($dataDir)) {
             mkdir($dataDir);
         }
+
         self::$filePids = $dataDir . '/pid';
+
         $fileDb = $dataDir . '/db.sqlite';
         $exists = file_exists($fileDb);
         self::$db = new PDO('sqlite:' . $fileDb, null, null);
@@ -46,13 +60,24 @@ class Workflow
             ');
             self::createRequestCacheTable();
         }
+
+        if (self::$enterprise) {
+            self::$baseUrl = self::getConfig('enterprise_url');
+            self::$apiUrl = self::$baseUrl ? self::$baseUrl . '/api/v3' : null;
+            self::$gistUrl = self::$baseUrl ? self::$baseUrl . '/gist' : null;
+        }
+
+        self::$debug = getenv('alfred_debug') && defined('STDERR');
+
         register_shutdown_function(array(__CLASS__, 'shutdown'));
     }
 
     public static function shutdown()
     {
         if (self::$refreshUrls) {
-            exec('php action.php "> refresh-cache ' . implode(',', self::$refreshUrls) . '" > /dev/null 2>&1 &');
+            $urls = implode(',', array_keys(self::$refreshUrls));
+            exec('php action.php "> refresh-cache ' . $urls . '" > /dev/null 2>&1 &');
+            self::log('refreshing cache in background for %s', $urls);
         }
     }
 
@@ -74,8 +99,47 @@ class Workflow
         self::getStatement('DELETE FROM config WHERE key = ?')->execute(array($key));
     }
 
-    public static function request($url, Curl $curl = null, $callback = null)
+    public static function getBaseUrl()
     {
+        return self::$baseUrl;
+    }
+
+    public static function getApiUrl($path = null)
+    {
+        $url = self::$apiUrl;
+
+        if ($path) {
+            $paramStart = false === strpos($path, '?') ? '?' : '&';
+            $url .= $path . $paramStart . 'per_page=100';
+        }
+
+        return $url;
+    }
+
+    public static function getGistUrl()
+    {
+        return self::$gistUrl;
+    }
+
+    public static function setAccessToken($token)
+    {
+        self::setConfig(self::$enterprise ? 'enterprise_access_token' : 'access_token', $token);
+    }
+
+    public static function getAccessToken()
+    {
+        return self::getConfig(self::$enterprise ? 'enterprise_access_token' : 'access_token');
+    }
+
+    public static function removeAccessToken()
+    {
+        self::removeConfig(self::$enterprise ? 'enterprise_access_token' : 'access_token');
+    }
+
+    public static function request($url, Curl $curl = null, $callback = null, $withAuthorization = true)
+    {
+        self::log('loading content for %s', $url);
+
         $return = false;
         $returnValue = null;
         if (!$curl) {
@@ -86,7 +150,8 @@ class Workflow
             };
         }
 
-        $curl->add(new CurlRequest($url, null, function (CurlResponse $response) use ($callback) {
+        $token = $withAuthorization ? self::getAccessToken() : null;
+        $curl->add(new CurlRequest($url, null, $token, function (CurlResponse $response) use ($callback) {
             if (is_callable($callback) && isset($response->content)) {
                 $callback($response->content);
             }
@@ -98,6 +163,14 @@ class Workflow
         return $returnValue;
     }
 
+    /**
+     * @param string   $url
+     * @param Curl     $curl
+     * @param callable $callback
+     * @param int      $maxAge
+     * @param bool     $refreshInBackground
+     * @return mixed
+     */
     public static function requestCache($url, Curl $curl = null, $callback = null, $maxAge = self::DEFAULT_CACHE_MAX_AGE, $refreshInBackground = true)
     {
         $return = false;
@@ -121,12 +194,13 @@ class Workflow
         $shouldRefresh = $timestamp < time() - 60 * $maxAge;
         $refreshInBackground = $refreshInBackground && !is_null($content);
 
-        if ($shouldRefresh && $refreshInBackground && $refresh < time() - 60) {
+        if ($shouldRefresh && $refreshInBackground && $refresh < time() - 3 * 60) {
             self::getStatement('UPDATE request_cache SET refresh = ? WHERE url = ?')->execute(array(time(), $url));
-            self::$refreshUrls[] = $url;
+            self::$refreshUrls[$url] = true;
         }
 
         if (!$shouldRefresh || $refreshInBackground) {
+            self::log('using cached content for %s', $url);
             $content = json_decode($content);
             $stmt = self::getStatement('SELECT url, content FROM request_cache WHERE parent = ? ORDER BY `timestamp` DESC');
             while ($stmt->execute(array($url)) && $data = $stmt->fetchObject()) {
@@ -166,7 +240,7 @@ class Workflow
                     $stmt->bindColumn('content', $content);
                     $stmt->fetch(PDO::FETCH_BOUND);
                     if ($nextUrl) {
-                        $curl->add(new CurlRequest($nextUrl, $etag, function (CurlResponse $response) use ($handleResponse, $url, $content) {
+                        $curl->add(new CurlRequest($nextUrl, $etag, Workflow::getAccessToken(), function (CurlResponse $response) use ($handleResponse, $url, $content) {
                             $handleResponse($response, $content, $url);
                         }));
                         return;
@@ -194,7 +268,8 @@ class Workflow
             }
         };
 
-        $curl->add(new CurlRequest($url, $etag, function (CurlResponse $response) use (&$responses, $handleResponse, $callback, $content) {
+        self::log('loading content for %s', $url);
+        $curl->add(new CurlRequest($url, $etag, self::getAccessToken(), function (CurlResponse $response) use (&$responses, $handleResponse, $callback, $content) {
             $handleResponse($response, $content);
         }));
 
@@ -204,16 +279,15 @@ class Workflow
         return $returnValue;
     }
 
-    public static function requestGithubApi($url, Curl $curl = null, $callback = null, $maxAge = self::DEFAULT_CACHE_MAX_AGE)
+    public static function requestApi($url, Curl $curl = null, $callback = null, $maxAge = self::DEFAULT_CACHE_MAX_AGE)
     {
-        $paramStart = false === strpos($url, '?') ? '?' : '&';
-        $url = 'https://api.github.com' . $url . $paramStart . 'per_page=100';
+        $url = self::getApiUrl($url);
         return self::requestCache($url, $curl, $callback, $maxAge);
     }
 
     public static function cleanCache()
     {
-        self::$db->exec('DELETE FROM request_cache WHERE timestamp < ' . (time() - 30 * 24 * 60 * 60));
+        self::$db->exec('DELETE FROM request_cache WHERE timestamp < ' . (time() - 100 * 24 * 60 * 60));
     }
 
     public static function deleteCache()
@@ -221,11 +295,23 @@ class Workflow
         self::$db->exec('DELETE FROM request_cache');
     }
 
+    public static function cacheWarmup()
+    {
+        $paths = array('/user', '/user/orgs', '/user/starred', '/user/subscriptions', '/user/repos', '/user/following');
+        foreach ($paths as $path) {
+            self::$refreshUrls[self::getApiUrl($path)] = true;
+        }
+    }
+
     public static function startServer()
     {
         if (version_compare(PHP_VERSION, '5.4', '>=')) {
             self::stopServer();
-            shell_exec('php -S localhost:2233 server.php > /dev/null 2>&1 & echo $! >> "' . self::$filePids . '"');
+            shell_exec(sprintf(
+                'alfred_workflow_data=%s php -d variables_order=EGPCS -S localhost:2233 server.php > /dev/null 2>&1 & echo $! >> %s',
+                escapeshellarg(getenv('alfred_workflow_data')),
+                escapeshellarg(self::$filePids)
+            ));
         }
     }
 
@@ -244,18 +330,16 @@ class Workflow
     {
         if (self::getConfig('version') !== self::VERSION) {
             self::setConfig('version', self::VERSION);
-            //self::deleteCache();
-            self::closeCursors();
-            self::$db->exec('DROP TABLE request_cache');
-            self::createRequestCacheTable();
         }
         if (!self::getConfig('autoupdate', 1)) {
             return false;
-        } elseif (!is_dir(__DIR__ . '/icons')) {
-            return true;
         }
-        $version = self::requestCache('http://gh01.de/alfred/github/current', null, null, 1440);
-        return $version !== null && $version !== self::VERSION;
+        $release = self::requestCache('https://api.github.com/repos/gharlan/alfred-github-workflow/releases/latest', null, null, 1440);
+        if (!$release) {
+            return false;
+        }
+        $version = ltrim($release->tag_name, 'v');
+        return version_compare($version, self::VERSION) > 0;
     }
 
     private static function createRequestCacheTable()
@@ -288,7 +372,14 @@ class Workflow
 
     public static function getItemsAsXml()
     {
-        return Item::toXml(self::$items);
+        return Item::toXml(self::$items, self::$enterprise, self::$hotkey, self::getBaseUrl());
+    }
+
+    public static function log($msg)
+    {
+        if (self::$debug) {
+            fputs(STDERR, "\n".call_user_func_array('sprintf', func_get_args()));
+        }
     }
 
     /**

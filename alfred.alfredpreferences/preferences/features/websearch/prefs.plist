@@ -7,11 +7,9 @@
 		<key>F80870DA-71DD-4ED1-9D58-B8320FA4B9A0</key>
 		<dict>
 			<key>enabled</key>
-			<false/>
+			<true/>
 			<key>keyword</key>
 			<string>drive</string>
-			<key>plusSpaces</key>
-			<false/>
 			<key>text</key>
 			<string>Google Drive</string>
 			<key>url</key>

@@ -4,23 +4,42 @@ require 'workflow.php';
 
 class Search
 {
+    private static $enterprise;
     private static $query;
     private static $parts;
     private static $user;
 
-    public static function run($query)
+    public static function run($scope, $query, $hotkey)
     {
+        self::$enterprise = 'enterprise' === $scope;
+
+        Workflow::init(self::$enterprise, $query, $hotkey);
+
+        if (!$hotkey) {
+            if ('' === $query) {
+                self::addEmptyQueryCommand();
+                return Workflow::getItemsAsXml();
+            }
+            if (' ' !== $query[0]) {
+                return '';
+            }
+        }
+
+        $query = ltrim($query);
         self::$query = $query;
         self::$parts = $parts = explode(' ', $query);
-
-        Workflow::init($query);
 
         if (Workflow::checkUpdate()) {
             self::addUpdateCommands();
             return Workflow::getItemsAsXml();
         }
 
-        if (!Workflow::getConfig('access_token') || !(self::$user = Workflow::requestGithubApi('/user'))) {
+        if (self::$enterprise && !Workflow::getBaseUrl()) {
+            self::addEnterpriseUrlCommand();
+            return Workflow::getItemsAsXml();
+        }
+
+        if (!Workflow::getAccessToken() || !(self::$user = Workflow::requestApi('/user'))) {
             self::addLoginCommands();
             return Workflow::getItemsAsXml();
         }
@@ -64,15 +83,16 @@ class Search
                     Workflow::addItem(Item::create()
                         ->title("Search '$parts[0]' for '$repoQuery'")
                         ->icon('search')
-                        ->arg('https://github.com/' . $parts[0] . '/search?q=' . urlencode($repoQuery))
+                        ->arg('/' . $parts[0] . '/search?q=' . urlencode($repoQuery))
                         ->autocomplete(false)
                     , false);
                 }
                 $path = $isUser ? $queryUser : 'search?q=' . urlencode($query);
+                $name = self::$enterprise ? 'GitHub Enterprise' : 'GitHub';
                 Workflow::addItem(Item::create()
-                    ->title("Search GitHub for '$query'")
+                    ->title("Search $name for '$query'")
                     ->icon('search')
-                    ->arg('https://github.com/' . $path)
+                    ->arg('/' . $path)
                     ->autocomplete(false)
                 , false);
             }
@@ -80,6 +100,16 @@ class Search
         }
 
         return Workflow::getItemsAsXml();
+    }
+
+    private static function addEmptyQueryCommand()
+    {
+        Workflow::addItem(Item::create()
+            ->title(self::$enterprise ? 'ghe' : 'gh')
+            ->subtitle('Search or type a command' . (self::$enterprise ? ' (GitHub Enterprise)' : ''))
+            ->comparator('')
+            ->valid(false)
+        , false);
     }
 
     private static function addUpdateCommands()
@@ -90,7 +120,6 @@ class Search
         );
         foreach ($cmds as $cmd => $desc) {
             Workflow::addItem(Item::create()
-                ->prefix('gh ')
                 ->title('> ' . $cmd)
                 ->subtitle($desc)
                 ->icon($cmd)
@@ -98,18 +127,40 @@ class Search
                 ->randomUid()
             , false);
         }
+
+        Workflow::addItem(Item::create()
+            ->title('> changelog')
+            ->subtitle('View the changelog')
+            ->icon('file')
+            ->arg('https://github.com/gharlan/alfred-github-workflow/blob/master/CHANGELOG.md')
+            ->randomUid()
+        , false);
+    }
+
+    private static function addEnterpriseUrlCommand()
+    {
+        $url = null;
+        if (count(self::$parts) > 1 && self::$parts[0] == '>' && self::$parts[1] == 'url' && isset(self::$parts[2])) {
+            $url = self::$parts[2];
+        }
+        Workflow::addItem(Item::create()
+            ->title('> url ' . $url)
+            ->subtitle('Set the GitHub Enterprise URL')
+            ->arg('> enterprise-url ' . $url)
+            ->valid((bool) $url, '<URL>')
+            ->randomUid()
+        , false);
     }
 
     private static function addLoginCommands()
     {
-        Workflow::removeConfig('access_token');
+        Workflow::removeAccessToken();
         $token = null;
         if (count(self::$parts) > 1 && self::$parts[0] == '>' && self::$parts[1] == 'login' && isset(self::$parts[2])) {
             $token = self::$parts[2];
         }
-        if (!$token) {
+        if (!$token && !self::$enterprise) {
             Workflow::addItem(Item::create()
-                ->prefix('gh ')
                 ->title('> login')
                 ->subtitle('Generate OAuth access token')
                 ->arg('> login')
@@ -117,13 +168,26 @@ class Search
             , false);
         }
         Workflow::addItem(Item::create()
-            ->prefix('gh ')
             ->title('> login ' . $token)
-            ->subtitle('Save OAuth access token')
+            ->subtitle('Save access token')
             ->arg('> login ' . $token)
             ->valid((bool) $token, '<access_token>')
             ->randomUid()
         , false);
+        if (!$token && self::$enterprise) {
+            Workflow::addItem(Item::create()
+                ->title('> generate token')
+                ->subtitle('Generate a new access token')
+                ->arg('/settings/applications')
+                ->randomUid()
+            , false);
+            Workflow::addItem(Item::create()
+                ->title('> enterprise reset')
+                ->subtitle('Reset the GitHub Enterprise URL')
+                ->arg('> enterprise-reset')
+                ->randomUid()
+            , false);
+        }
     }
 
     private static function addDefaultCommands($isUser, $isRepo, $queryUser)
@@ -134,7 +198,7 @@ class Search
         $curl = new Curl();
         if (!$isUser) {
             $getRepos = function ($url, $prio) use ($curl, &$repos) {
-                Workflow::requestGithubApi($url, $curl, function ($urlRepos) use (&$repos, $prio) {
+                Workflow::requestApi($url, $curl, function ($urlRepos) use (&$repos, $prio) {
                     foreach ($urlRepos as $repo) {
                         $repo->prio = $prio;
                         $repos[$repo->id] = $repo;
@@ -144,7 +208,7 @@ class Search
             if ($isRepo) {
                 $urls = array('/users/' . $queryUser . '/repos', '/orgs/' . $queryUser . '/repos');
             } else {
-                Workflow::requestGithubApi('/user/orgs', $curl, function ($orgs) use ($getRepos) {
+                Workflow::requestApi('/user/orgs', $curl, function ($orgs) use ($getRepos) {
                     foreach ($orgs as $org) {
                         $getRepos('/orgs/' . $org->login . '/repos', 0);
                     }
@@ -156,7 +220,7 @@ class Search
             }
         }
         if (!$isRepo) {
-            Workflow::requestGithubApi('/user/following', $curl, function ($urlUsers) use (&$users) {
+            Workflow::requestApi('/user/following', $curl, function ($urlUsers) use (&$users) {
                 $users = $urlUsers;
             });
         }
@@ -176,7 +240,7 @@ class Search
                 ->title($repo->full_name . ' ')
                 ->subtitle($repo->description)
                 ->icon($icon)
-                ->arg('https://github.com/' . $repo->full_name)
+                ->arg('/' . $repo->full_name)
                 ->prio(30 + $repo->prio)
             );
         }
@@ -202,24 +266,36 @@ class Search
     private static function addRepoSubCommands()
     {
         $parts = self::$parts;
-        if (isset($parts[1][0]) && in_array($parts[1][0], array('#', '@', '/'))) {
+        if (isset($parts[1][0]) && in_array($parts[1][0], array('#', '@', '*', '/'))) {
 
             switch ($parts[1][0]) {
+                case '*':
+                    $commits = Workflow::requestApi('/repos/' . $parts[0] . '/commits');
+                    foreach ($commits as $commit) {
+                        Workflow::addItem(Item::create()
+                            ->title($commit->commit->message)
+                            ->comparator($parts[0] . ' *' . $commit->sha)
+                            ->subtitle($commit->commit->author->date . '  (' . $commit->sha .')')
+                            ->icon('commits')
+                            ->arg('https://github.com/' . $parts[0] . '/commit/' . $commit->sha)
+                        );
+                    }
+                    break;
                 case '@':
-                    $branches = Workflow::requestGithubApi('/repos/' . $parts[0] . '/branches');
+                    $branches = Workflow::requestApi('/repos/' . $parts[0] . '/branches');
                     foreach ($branches as $branch) {
                         Workflow::addItem(Item::create()
                             ->title('@' . $branch->name)
                             ->comparator($parts[0] . ' @' . $branch->name)
                             ->subtitle($branch->commit->sha)
                             ->icon('branch')
-                            ->arg('https://github.com/' . $parts[0] . '/tree/' . $branch->name)
+                            ->arg('/' . $parts[0] . '/tree/' . $branch->name)
                         );
                     }
                     break;
                 case '/':
-                    $repo = Workflow::requestGithubApi('/repos/' . $parts[0]);
-                    $files = Workflow::requestGithubApi('/repos/' . $parts[0] . '/git/trees/' . $repo->default_branch . '?recursive=1');
+                    $repo = Workflow::requestApi('/repos/' . $parts[0]);
+                    $files = Workflow::requestApi('/repos/' . $parts[0] . '/git/trees/' . $repo->default_branch . '?recursive=1');
                     foreach ($files->tree as $file) {
                         if ('blob' === $file->type) {
                             Workflow::addItem(Item::create()
@@ -227,13 +303,13 @@ class Search
                                 ->subtitle('/' . $file->path)
                                 ->comparator($parts[0] . ' /' . $file->path)
                                 ->icon('file')
-                                ->arg('https://github.com/' . $parts[0] . '/blob/' . $repo->default_branch . '/' . $file->path)
+                                ->arg('/' . $parts[0] . '/blob/' . $repo->default_branch . '/' . $file->path)
                             );
                         }
                     }
                     break;
                 case '#':
-                    $issues = Workflow::requestGithubApi('/repos/' . $parts[0] . '/issues?sort=updated');
+                    $issues = Workflow::requestApi('/repos/' . $parts[0] . '/issues?sort=updated&state=all');
                     foreach ($issues as $issue) {
                         Workflow::addItem(Item::create()
                             ->title('#' . $issue->number)
@@ -256,38 +332,40 @@ class Search
                 'pulls'   => array('Show open pull requests', 'pull-request'),
                 'pulse'   => array('See recent activity'),
                 'wiki'    => array('Pull up the wiki'),
-                'commits' => array('View commit history')
+                'commits' => array('View commit history'),
+                'releases'=> array('See latest releases')
             );
             foreach ($subs as $key => $sub) {
                 Workflow::addItem(Item::create()
                     ->title($parts[0] . ' ' . $key)
                     ->subtitle($sub[0])
                     ->icon(isset($sub[1]) ? $sub[1] : $key)
-                    ->arg('https://github.com/' . $parts[0] . '/' . $key)
+                    ->arg('/' . $parts[0] . '/' . $key)
                 );
             }
             Workflow::addItem(Item::create()
                 ->title($parts[0] . ' new issue')
                 ->subtitle('Create new issue')
                 ->icon('issue')
-                ->arg('https://github.com/' . $parts[0] . '/issues/new?source=c')
+                ->arg('/' . $parts[0] . '/issues/new?source=c')
             );
             Workflow::addItem(Item::create()
                 ->title($parts[0] . ' new pull')
                 ->subtitle('Create new pull request')
                 ->icon('pull-request')
-                ->arg('https://github.com/' . $parts[0] . '/pull/new?source=c')
+                ->arg('/' . $parts[0] . '/pull/new?source=c')
             );
             Workflow::addItem(Item::create()
                 ->title($parts[0] . ' milestones')
                 ->subtitle('View milestones')
                 ->icon('milestone')
-                ->arg('https://github.com/' . $parts[0] . '/milestones')
+                ->arg('/' . $parts[0] . '/milestones')
             );
             if (empty($parts[1])) {
                 $subs = array(
                     '#' => array('Show a specific issue by number', 'issue'),
                     '@' => array('Show a specific branch', 'branch'),
+                    '*' => array('Show a specific commit', 'commits'),
                     '/' => array('Show a blob', 'file')
                 );
                 foreach ($subs as $key => $sub) {
@@ -304,7 +382,7 @@ class Search
                 ->title($parts[0] . ' clone')
                 ->subtitle('Clone this repo')
                 ->icon('clone')
-                ->arg('https://github.com/' . $parts[0] . '.git')
+                ->arg('/' . $parts[0] . '.git')
             );
 
         }
@@ -325,7 +403,7 @@ class Search
                 ->title($queryUser . ' ' . $key)
                 ->subtitle($sub[1])
                 ->icon(isset($sub[2]) ? $sub[2] : $key)
-                ->arg('https://github.com/' . $sub[0])
+                ->arg('/' . $sub[0])
                 ->prio($prio--)
             );
         }
@@ -334,17 +412,38 @@ class Search
             ->title($queryUser . ' gists')
             ->subtitle("View $queryUser's' gists")
             ->icon('gists')
-            ->arg('https://gist.github.com/' . $queryUser)
+            ->arg(Workflow::getGistUrl() . '/' . $queryUser)
             ->prio(1)
         );
     }
 
     private static function addMyCommands()
     {
+        $parts = self::$parts;
+        if (isset($parts[2]) && in_array($parts[1], array('pulls', 'issues'))) {
+            $icon = $parts[1] === 'pulls' ? 'pull-request' : 'issue';
+            $items = $icon . 's';
+            $subs = array(
+                'created' => array($parts[1], 'View your ' . $items),
+                'assigned' => array($parts[1] . '/assigned', 'View your assigned ' . $items),
+                'mentioned' => array($parts[1] . '/mentioned', 'View ' . $items . ' that mentioned you'),
+            );
+            foreach ($subs as $key => $sub) {
+                Workflow::addItem(Item::create()
+                    ->title('my ' . $parts[1] . ' ' . $key)
+                    ->subtitle($sub[1])
+                    ->icon($icon)
+                    ->arg('/' . $sub[0])
+                    ->prio(1)
+                );
+            }
+            return;
+        }
+
         $myPages = array(
             'dashboard'     => array('', 'View your dashboard'),
-            'pulls'         => array('pulls', 'View your pull requests', 'pull-request'),
-            'issues'        => array('issues', 'View your issues', 'issue'),
+            'pulls '         => array('pulls', 'View your pull requests', 'pull-request'),
+            'issues '        => array('issues', 'View your issues', 'issue'),
             'stars'         => array('stars', 'View your starred repositories'),
             'profile'       => array(self::$user->login, 'View your public user profile', 'user'),
             'settings'      => array('settings', 'View or edit your account settings'),
@@ -354,8 +453,8 @@ class Search
             Workflow::addItem(Item::create()
                 ->title('my ' . $key)
                 ->subtitle($my[1])
-                ->icon(isset($my[2]) ? $my[2] : $key)
-                ->arg('https://github.com/' . $my[0])
+                ->icon(isset($my[2]) ? $my[2] : rtrim($key))
+                ->arg('/' . $my[0])
                 ->prio(1)
             );
         }
@@ -363,7 +462,7 @@ class Search
             ->title('my gists')
             ->subtitle('View your gists')
             ->icon('gists')
-            ->arg('https://gist.github.com/' . self::$user->login)
+            ->arg(Workflow::getGistUrl() . '/' . self::$user->login)
             ->prio(1)
         );
     }
@@ -380,16 +479,31 @@ class Search
         } else {
             $cmds['activate autoupdate'] = 'Activate auto updating this Alfred Workflow';
         }
+        if (self::$enterprise) {
+            $cmds['enterprise reset'] = 'Reset the GitHub Enterprise URL';
+        }
         foreach ($cmds as $cmd => $desc) {
             Workflow::addItem(Item::create()
-                ->prefix('gh ')
                 ->title('> ' . $cmd)
                 ->subtitle($desc)
                 ->icon($cmd)
                 ->arg('> ' . str_replace(' ', '-', $cmd))
             );
         }
+
+        $cmds = array(
+            'help' => 'readme',
+            'changelog' => 'changelog',
+        );
+        foreach ($cmds as $cmd => $file) {
+            Workflow::addItem(Item::create()
+                ->title('> ' . $cmd)
+                ->subtitle('View the ' . $file)
+                ->icon('file')
+                ->arg('https://github.com/gharlan/alfred-github-workflow/blob/master/' . strtoupper($file) . '.md')
+            );
+        }
     }
 }
 
-print Search::run(ltrim($argv[1]));
+print Search::run($argv[1], $argv[2], getenv('hotkey'));

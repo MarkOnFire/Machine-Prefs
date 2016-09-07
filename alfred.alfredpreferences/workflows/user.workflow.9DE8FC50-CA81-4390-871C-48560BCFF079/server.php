@@ -13,7 +13,8 @@ if (!isset($_GET['access_token'])) {
     exit;
 }
 
-Workflow::setConfig('access_token', $_GET['access_token']);
+Workflow::setAccessToken($_GET['access_token']);
+Workflow::cacheWarmup();
 
 ?>
 <!DOCTYPE html>
