@@ -52,14 +52,11 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>script</key>
 				<string>search=$(echo "{query}" | sed 's/ /-/g')
-open "http://giphy.com/tags/${search}"
-open "http://www.reactiongifs.com/?s=${search}&amp;submit=Search"</string>
+open "http://giphy.com/tags/${search}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>

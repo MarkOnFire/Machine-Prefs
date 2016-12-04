@@ -19,7 +19,7 @@ borderRadius = '3px'
 bgOpacity    = 0.9
 
 # You may optionally limit the number of disk to show
-maxDisks: 10
+maxDisks: 5
 
 command: "df -#{if base10 then 'H' else 'h'} | grep '/dev/' | while read -r line; do fs=$(echo $line | awk '{print $1}'); name=$(diskutil info $fs | grep 'Volume Name' | awk '{print substr($0, index($0,$3))}'); echo $(echo $line | awk '{print $2, $3, $4, $5}') $(echo $name | awk '{print substr($0, index($0,$1))}'); done | grep -vE '#{exclude}'"
 
@@ -36,7 +36,7 @@ style: """
   // Statistics text settings
   color #fff
   font-family: Apple Kid
-  top 23%
+  top 33%
   left 3%
   font-family: Apple Kid
   color: #fff
