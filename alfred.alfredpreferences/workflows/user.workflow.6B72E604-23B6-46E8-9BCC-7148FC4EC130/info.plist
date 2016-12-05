@@ -61,7 +61,7 @@
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
-				<string>https://ttbook.org/admin/workbench/content/all?title={query}&amp;type=All&amp;published=1&amp;items_per_page=25</string>
+				<string>http://www.ttbook.org/search/site/{query}</string>
 				<key>utf8</key>
 				<true/>
 			</dict>
