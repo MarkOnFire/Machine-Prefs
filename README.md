@@ -12,5 +12,7 @@ Pushing system preferences to this repo to make setting up a new machine easier.
 * [Alfred](https://www.alfredapp.com/)
 * [BackBlaze](https://www.backblaze.com/) - once files are restored
 
+## App Store - fill in via preference/purchase history. 
+
 ##Via Terminal
 TBD
