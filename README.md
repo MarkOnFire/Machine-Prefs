@@ -10,9 +10,10 @@ Pushing system preferences to this repo to make setting up a new machine easier.
 * [Skype](https://www.skype.com/en/download)
 * [Focus](https://heyfocus.com/)
 * [Alfred](https://www.alfredapp.com/)
+* [screencloud](https://screencloud.net/)
 * [BackBlaze](https://www.backblaze.com/) - once files are restored
 
-## App Store - fill in via preference/purchase history. 
+## App Store - fill in via preference/purchase history.
 
 ##Via Terminal
-TBD
+To Do: Write a script to run for command line text editing, etc.
