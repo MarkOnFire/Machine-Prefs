@@ -16,6 +16,12 @@ Pushing system preferences to this repo to make setting up a new machine easier.
 
 ## App Store - fill in via preference/purchase history.
 
+## Setup 
+* Calendar/OSX accounts
+* Airmail accounts
+* Twitter accounts
+* Chrome accounts
+
 ##Via Terminal
 To Do: Write a script to run for command line text editing, etc.
 
@@ -24,5 +30,4 @@ HomeBrew—>Git, node, python, Webhook
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install git
 brew install node
-
 npm install -g wh grunt-cli
