@@ -10,8 +10,9 @@ Pushing system preferences to this repo to make setting up a new machine easier.
 * [Skype](https://www.skype.com/en/download)
 * [Focus](https://heyfocus.com/)
 * [Alfred](https://www.alfredapp.com/)
-* [screencloud](https://screencloud.net/)
 * [BackBlaze](https://www.backblaze.com/) - once files are restored
+* [screencloud](https://screencloud.net/)
+* [Docker](https://www.docker.com/products/overview)
 
 ## App Store - fill in via preference/purchase history.
 
