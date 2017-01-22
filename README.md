@@ -9,9 +9,14 @@ Pushing system preferences to this repo to make setting up a new machine easier.
 * [Notational Velocity](http://notational.net/)
 * [Focus](https://heyfocus.com/)
 * [Alfred](https://www.alfredapp.com/)
+<<<<<<< HEAD
+=======
 * [screencloud](https://screencloud.net/)
 * [Docker](https://docs.docker.com/docker-for-mac/)
+>>>>>>> 32ac2b1a8964ff0f4b9d654d97364150893de07b
 * [BackBlaze](https://www.backblaze.com/) - once files are restored
+* [screencloud](https://screencloud.net/)
+* [Docker](https://www.docker.com/products/overview)
 
 
 ## App Store - fill in via preference/purchase history.
