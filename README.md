@@ -16,7 +16,7 @@ Pushing system preferences to this repo to make setting up a new machine easier.
 
 ## App Store - fill in via preference/purchase history.
 
-## Setup 
+## Setup
 * Calendar/OSX accounts
 * Airmail accounts
 * Twitter accounts
@@ -31,3 +31,5 @@ HomeBrew—>Git, node, python, Webhook
 brew install git
 brew install node
 npm install -g wh grunt-cli
+
+git config --global credential.helper osxkeychain
