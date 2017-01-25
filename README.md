@@ -32,3 +32,5 @@ HomeBrew—>Git, node, python, Webhook
 brew install git
 brew install node
 npm install -g wh grunt-cli
+
+git config --global credential.helper osxkeychain
