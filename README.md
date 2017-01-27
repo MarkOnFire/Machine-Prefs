@@ -23,11 +23,12 @@ Pushing system preferences to this repo to make setting up a new machine easier.
 * Twitter accounts
 * Chrome accounts
 
-##Via Terminal
+##Dev Environment
+Start with [NPR Visuals Team setup guide.](http://blog.apps.npr.org/2013/06/06/how-to-setup-a-developers-environment.html)
+
 To Do: Write a script to run for command line text editing, etc.
 
-HomeBrew—>Git, node, python, Webhook
-
+###For Webhook (Tone/Don't Die)
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install git
 brew install node
