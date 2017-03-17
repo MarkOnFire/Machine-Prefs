@@ -17,6 +17,8 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>vitoclose</key>
+				<false/>
 			</dict>
 		</array>
 	</dict>
@@ -37,6 +39,8 @@
 				<integer>0</integer>
 				<key>keyword</key>
 				<string>ap</string>
+				<key>subtext</key>
+				<string></string>
 				<key>text</key>
 				<string>AP Stylebook Lookup</string>
 				<key>withspace</key>
@@ -47,15 +51,17 @@
 			<key>uid</key>
 			<string>619F57BA-DCF9-4FB7-8629-75DE7016E3CD</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>plusspaces</key>
-				<false/>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
 				<key>url</key>
-				<string>http://www.apstylebook.com/online/?do=search_results&amp;search_term={query}</string>
+				<string>https://www.apstylebook.com/search?query={query}</string>
 				<key>utf8</key>
 				<true/>
 			</dict>
@@ -64,7 +70,7 @@
 			<key>uid</key>
 			<string>C66A9D4E-55CD-41AD-A279-09A6897AAF86</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -73,11 +79,15 @@
 	<dict>
 		<key>619F57BA-DCF9-4FB7-8629-75DE7016E3CD</key>
 		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
 			<key>ypos</key>
 			<real>10</real>
 		</dict>
 		<key>C66A9D4E-55CD-41AD-A279-09A6897AAF86</key>
 		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
 			<key>ypos</key>
 			<real>10</real>
 		</dict>
