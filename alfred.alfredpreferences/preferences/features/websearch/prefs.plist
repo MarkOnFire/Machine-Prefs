@@ -63,7 +63,7 @@
 			<key>keyword</key>
 			<string>drive</string>
 			<key>text</key>
-			<string>Google Drive</string>
+			<string>Google Drive Search</string>
 			<key>url</key>
 			<string>https://drive.google.com/?tab=mo&amp;authuser=0#search/{query}</string>
 			<key>utf8</key>
