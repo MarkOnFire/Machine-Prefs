@@ -4,6 +4,58 @@
 <dict>
 	<key>customSites</key>
 	<dict>
+		<key>13F40F62-4AC9-426E-AC2C-1EE05B269B2A</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>ap</string>
+			<key>text</key>
+			<string>AP Style Search</string>
+			<key>url</key>
+			<string>https://www.apstylebook.com/search?query={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>932E540A-6202-4B45-B6E7-C8295CB6A1DE</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>steam</string>
+			<key>text</key>
+			<string>Steam search</string>
+			<key>url</key>
+			<string>http://store.steampowered.com/search/?snr=1_4_4__12&amp;term={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>A405982A-9C02-4E46-8989-BEE841FEFCC7</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>unsplash</string>
+			<key>text</key>
+			<string>Unsplash</string>
+			<key>url</key>
+			<string>https://unsplash.com/search/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>C03CF4FC-03A0-49B2-B288-D95F353C90FF</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>beer</string>
+			<key>text</key>
+			<string>Untappd</string>
+			<key>url</key>
+			<string>https://untappd.com/search?q={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>F80870DA-71DD-4ED1-9D58-B8320FA4B9A0</key>
 		<dict>
 			<key>enabled</key>
