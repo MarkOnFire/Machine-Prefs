@@ -4,6 +4,19 @@
 <dict>
 	<key>customSites</key>
 	<dict>
+		<key>09DFD9EF-D18D-4912-8FCE-9EE694D94B24</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>goodreads</string>
+			<key>text</key>
+			<string>Goodreads Search</string>
+			<key>url</key>
+			<string>https://www.goodreads.com/search?q={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>13F40F62-4AC9-426E-AC2C-1EE05B269B2A</key>
 		<dict>
 			<key>enabled</key>
