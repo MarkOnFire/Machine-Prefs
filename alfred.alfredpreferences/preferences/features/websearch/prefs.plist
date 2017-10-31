@@ -30,6 +30,19 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>3A0F5D24-FD74-47FB-85E3-460AC5EF131A</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>dictionary</string>
+			<key>text</key>
+			<string>Google Dictionary Search</string>
+			<key>url</key>
+			<string>https://www.google.com/search?q=dictionary&amp;oq=dict&amp;aqs=chrome.0.0j69i65l3j69i57j0.1220j0j7&amp;sourceid=chrome&amp;ie=UTF-8#dobs={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>4115AC73-E740-46C4-9EBD-E3798B2C00BA</key>
 		<dict>
 			<key>enabled</key>

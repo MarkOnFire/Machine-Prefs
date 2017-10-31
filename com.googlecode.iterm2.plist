@@ -8,6 +8,8 @@
 	<integer>0</integer>
 	<key>AppleSmoothFixedFontsSizeThreshold</key>
 	<integer>1</integer>
+	<key>AppleWindowTabbingMode</key>
+	<string>manual</string>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>Solarized Dark</key>
@@ -433,6 +435,8 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>88AB161E-71A8-4AED-BE6E-659E3543C907</string>
+	<key>HotkeyMigratedFromSingleToMulti</key>
+	<true/>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
@@ -470,10 +474,14 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>2090 319 620 392 1440 -180 1920 1058 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>459 355 918 512 0 0 1440 900 </string>
+	<string>459 316 918 512 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>6 6 1431 864 0 0 1440 877 </string>
+	<string>503 275 570 452 0 0 1440 900 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>0 0 1389 877 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1171,7 +1179,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-02-08T15:59:45Z</date>
+	<date>2017-09-29T16:30:09Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>TabStyle</key>
@@ -1179,6 +1187,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>3.0.13</string>
+	<string>3.1.2</string>
 </dict>
 </plist>
