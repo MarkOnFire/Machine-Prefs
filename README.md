@@ -6,7 +6,7 @@ Pushing system preferences to this repo to make setting up a new machine easier.
 * [Google Drive](https://www.google.com/drive/download/)
 * [Creative Cloud](https://www.adobe.com/creativecloud/desktop-app.html)
 * [Atom](https://atom.io/)
-* [Notational Velocity](http://notational.net/)
+* [Notational Velocity](http://notational.net/NotationalVelocity.zip)
 * [Focus](https://heyfocus.com/)
 * [Alfred](https://www.alfredapp.com/)
 * [BackBlaze](https://www.backblaze.com/) - once files are restored
