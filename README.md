@@ -1,17 +1,14 @@
 # Machine-Prefs
 Pushing system preferences to this repo to make setting up a new machine easier.
 
-# Current New Machine Setup:
-##Via Download
+## Current New Machine Setup:
+### Via Download
 * [Google Drive](https://www.google.com/drive/download/)
 * [Creative Cloud](https://www.adobe.com/creativecloud/desktop-app.html)
-* [Atom](https://atom.io/) with [Sync Settings](http://atom.io/packages/sync-settings)
+* [Atom](https://atom.io/)
 * [Notational Velocity](http://notational.net/)
 * [Focus](https://heyfocus.com/)
 * [Alfred](https://www.alfredapp.com/)
-* [TeamViewer](https://www.teamviewer.com/en/)
-* [screencloud](https://screencloud.net/)
-* [Docker](https://docs.docker.com/docker-for-mac/)
 * [BackBlaze](https://www.backblaze.com/) - once files are restored
 
 
@@ -19,19 +16,20 @@ Pushing system preferences to this repo to make setting up a new machine easier.
 
 ## Setup
 * Calendar/OSX accounts
-* Airmail accounts
 * Twitter accounts
 * Chrome accounts
 
-##Dev Environment
+## Dev Environment
 Start with [NPR Visuals Team setup guide.](http://blog.apps.npr.org/2013/06/06/how-to-setup-a-developers-environment.html)
 
 To Do: Write a script to run for command line text editing, etc.
 
-###For Webhook (Tone/Don't Die)
+### Install Brew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install git
-brew install node
-npm install -g wh grunt-cli
 
-git config --global credential.helper osxkeychain
+### Packages for ongoing projects
+brew install git node
+
+### Don't forget to...
+* Add a new SSH key
+* Enable a credential helper (git config --global credential.helper osxkeychain)
