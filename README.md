@@ -9,6 +9,7 @@ Pushing system preferences to this repo to make setting up a new machine easier.
 * [Notational Velocity](http://notational.net/NotationalVelocity.zip)
 * [Focus](https://heyfocus.com/)
 * [Alfred](https://www.alfredapp.com/)
+* [iTerm2](https://www.iterm2.com/downloads.html)
 * [GPG Suite](https://gpgtools.org/) - don't forget to add private keys!
 
 
