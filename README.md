@@ -10,6 +10,7 @@ Pushing system preferences to this repo to make setting up a new machine easier.
 * [Focus](https://heyfocus.com/)
 * [Alfred](https://www.alfredapp.com/)
 * [iTerm2](https://www.iterm2.com/downloads.html)
+* [Fluid](http://fluidapp.com/)
 * [GPG Suite](https://gpgtools.org/) - don't forget to add private keys!
 
 
