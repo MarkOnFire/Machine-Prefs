@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
 	<key>AppleScrollAnimationEnabled</key>
@@ -481,7 +483,7 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>-1135 637 918 401 -1440 180 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-1432 180 1431 878 -1440 180 1440 878 </string>
+	<string>-1439 180 1440 878 -1440 180 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 0 1389 877 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
@@ -1121,6 +1123,8 @@
 			<string>/Users/markriechers/developer</string>
 		</dict>
 	</array>
+	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
@@ -1185,7 +1189,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-12-05T16:24:45Z</date>
+	<date>2018-02-07T06:48:08Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>

@@ -35,32 +35,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>paths</key>
-				<array>
-					<string>/Applications/Google Chrome.app</string>
-					<string>/Applications/Signal.app</string>
-					<string>/Applications/Slack.app</string>
-					<string>/Applications/Tweetbot.app</string>
-					<string>/Applications/Trello.app</string>
-					<string>/Applications/Wunderlist.app</string>
-					<string>/Applications/Calendar.app</string>
-					<string>/Applications/Messages.app</string>
-					<string>/Applications/Reeder.app</string>
-					<string>/Applications/iTerm.app</string>
-				</array>
-				<key>toggle</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.launchfiles</string>
-			<key>uid</key>
-			<string>F51AFF16-38A4-4E7D-ABC7-7F31B762FE32</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>action</key>
 				<integer>0</integer>
 				<key>argument</key>
@@ -89,6 +63,32 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>paths</key>
+				<array>
+					<string>/Applications/Google Chrome.app</string>
+					<string>/Applications/Mail.app</string>
+					<string>/Applications/Facebook Messenger.app</string>
+					<string>/Applications/Messages.app</string>
+					<string>/Applications/Slack.app</string>
+					<string>/Applications/Trello.app</string>
+					<string>/Applications/Wunderlist.app</string>
+					<string>/Applications/Calendar.app</string>
+					<string>/Applications/Reeder.app</string>
+					<string>/Applications/iTerm.app</string>
+				</array>
+				<key>toggle</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.launchfiles</string>
+			<key>uid</key>
+			<string>F51AFF16-38A4-4E7D-ABC7-7F31B762FE32</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -99,7 +99,7 @@
 			<key>xpos</key>
 			<integer>100</integer>
 			<key>ypos</key>
-			<real>90</real>
+			<integer>60</integer>
 		</dict>
 		<key>F51AFF16-38A4-4E7D-ABC7-7F31B762FE32</key>
 		<dict>
