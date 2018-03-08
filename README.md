@@ -6,11 +6,10 @@ Pushing system preferences to this repo to make setting up a new machine easier.
 * [Google Backup and Sync](https://www.google.com/drive/download/)
 * [Creative Cloud](https://www.adobe.com/creativecloud/desktop-app.html)
 * [Atom](https://atom.io/)
-* [Notational Velocity](http://notational.net/NotationalVelocity.zip)
+* [Evernote](https://evernote.com/download)
 * [Focus](https://heyfocus.com/)
 * [Alfred](https://www.alfredapp.com/)
 * [iTerm2](https://www.iterm2.com/downloads.html)
-* [Fluid](http://fluidapp.com/)
 * [GPG Suite](https://gpgtools.org/) - don't forget to add private keys!
 
 
