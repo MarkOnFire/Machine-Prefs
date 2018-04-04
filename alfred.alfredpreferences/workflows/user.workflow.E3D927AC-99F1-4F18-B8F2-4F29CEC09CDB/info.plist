@@ -8,11 +8,11 @@
 	<string>Tools</string>
 	<key>connections</key>
 	<dict>
-		<key>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</key>
+		<key>676CA608-3A1F-4EBB-A4E7-8834E1B40460</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>11D5721D-E45C-4D45-82C8-2CC370002271</string>
+				<string>E069D271-3675-42A1-82A2-CB2857D4FF6A</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -25,34 +25,13 @@
 	<key>createdby</key>
 	<string></string>
 	<key>description</key>
-	<string></string>
+	<string>New Headliner Audiogram on Sparemin</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Overdrive eBook Search</string>
+	<string>New Audiogram</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>lib</string>
-				<key>subtext</key>
-				<string>Chicago Public Library</string>
-				<key>text</key>
-				<string>Search eBooks</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -61,14 +40,35 @@
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
-				<string>https://www.overdrive.com/search?q={query}</string>
+				<string>https://headliner.sparemin.com/wizard?type=audiogram</string>
 				<key>utf8</key>
 				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>11D5721D-E45C-4D45-82C8-2CC370002271</string>
+			<string>E069D271-3675-42A1-82A2-CB2857D4FF6A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>ag</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>New Audiogram</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>676CA608-3A1F-4EBB-A4E7-8834E1B40460</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -77,19 +77,19 @@
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>11D5721D-E45C-4D45-82C8-2CC370002271</key>
+		<key>676CA608-3A1F-4EBB-A4E7-8834E1B40460</key>
 		<dict>
 			<key>xpos</key>
-			<integer>500</integer>
+			<integer>380</integer>
 			<key>ypos</key>
-			<real>60</real>
+			<integer>210</integer>
 		</dict>
-		<key>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</key>
+		<key>E069D271-3675-42A1-82A2-CB2857D4FF6A</key>
 		<dict>
 			<key>xpos</key>
-			<integer>300</integer>
+			<integer>570</integer>
 			<key>ypos</key>
-			<real>60</real>
+			<integer>200</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
