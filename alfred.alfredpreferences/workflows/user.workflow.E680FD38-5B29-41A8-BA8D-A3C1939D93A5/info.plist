@@ -8,11 +8,11 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
-		<key>C5D6EFC3-6EBD-4961-AB43-347BD7205F38</key>
+		<key>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>3A78C022-3C89-494D-8E7D-E059FED35C22</string>
+				<string>11D5721D-E45C-4D45-82C8-2CC370002271</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -23,33 +23,33 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>Mark Riechers</string>
+	<string></string>
 	<key>description</key>
 	<string></string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>TTBOOK New Content</string>
+	<string>Library of Congress Search</string>
 	<key>objects</key>
 	<array>
 		<dict>
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>2</integer>
+				<integer>0</integer>
 				<key>keyword</key>
-				<string>newttbook</string>
+				<string>loc</string>
 				<key>subtext</key>
-				<string></string>
+				<string>Materials and Images</string>
 				<key>text</key>
-				<string>Create TTBOOK site content.</string>
+				<string>Library of Congress Search</string>
 				<key>withspace</key>
-				<false/>
+				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>C5D6EFC3-6EBD-4961-AB43-347BD7205F38</string>
+			<string>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -61,14 +61,14 @@
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
-				<string>https://www.ttbook.org/node/add</string>
+				<string>https://www.loc.gov/search/?in=&amp;q={query}&amp;new=true</string>
 				<key>utf8</key>
 				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>3A78C022-3C89-494D-8E7D-E059FED35C22</string>
+			<string>11D5721D-E45C-4D45-82C8-2CC370002271</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -77,19 +77,19 @@
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>3A78C022-3C89-494D-8E7D-E059FED35C22</key>
+		<key>11D5721D-E45C-4D45-82C8-2CC370002271</key>
 		<dict>
 			<key>xpos</key>
-			<integer>500</integer>
+			<integer>270</integer>
 			<key>ypos</key>
-			<real>10</real>
+			<integer>50</integer>
 		</dict>
-		<key>C5D6EFC3-6EBD-4961-AB43-347BD7205F38</key>
+		<key>6E4EEBD5-0AB8-4986-8EC0-1CD707F41689</key>
 		<dict>
 			<key>xpos</key>
-			<integer>300</integer>
+			<integer>50</integer>
 			<key>ypos</key>
-			<real>10</real>
+			<integer>50</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>

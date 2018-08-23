@@ -30,6 +30,19 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>24CCCC51-16A8-4347-B5B4-F39312DBB281</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>imgur</string>
+			<key>text</key>
+			<string>Imgur</string>
+			<key>url</key>
+			<string>https://imgur.com/t/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>3A0F5D24-FD74-47FB-85E3-460AC5EF131A</key>
 		<dict>
 			<key>enabled</key>
