@@ -82,6 +82,19 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>72EA8EAA-F8B2-42C1-A976-E5AA9EC9804E</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>keep</string>
+			<key>text</key>
+			<string>Google Keep</string>
+			<key>url</key>
+			<string>https://keep.google.com/#search/text%253D{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>932E540A-6202-4B45-B6E7-C8295CB6A1DE</key>
 		<dict>
 			<key>enabled</key>
@@ -108,6 +121,19 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>A4840E23-74E5-468C-A15C-7E205070F8CD</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>gif</string>
+			<key>text</key>
+			<string>Giphy</string>
+			<key>url</key>
+			<string>https://giphy.com/search/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>C03CF4FC-03A0-49B2-B288-D95F353C90FF</key>
 		<dict>
 			<key>enabled</key>
@@ -118,6 +144,19 @@
 			<string>Untappd</string>
 			<key>url</key>
 			<string>https://untappd.com/search?q={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>DFE120EC-2637-4F36-A19C-0D7186D9B7F2</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>wpr</string>
+			<key>text</key>
+			<string>WPR.org site search</string>
+			<key>url</key>
+			<string>https://www.google.com/search?hl=en&amp;as_q={query}&amp;as_sitesearch=wpr.org</string>
 			<key>utf8</key>
 			<true/>
 		</dict>
