@@ -173,6 +173,19 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>FD100C2C-7A25-4FCF-A92F-313227127B2A</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>box</string>
+			<key>text</key>
+			<string>Box Search</string>
+			<key>url</key>
+			<string>https://uwmadison.app.box.com/folder/0/search?metadata=&amp;owners=&amp;query={query}&amp;resinSessionID=819fbd1982f236968a56b9&amp;types=&amp;updatedTime=&amp;updatedTimeFrom=&amp;updatedTimeTo=</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 	</dict>
 	<key>onlyShowEnabledInPrefs</key>
 	<true/>
