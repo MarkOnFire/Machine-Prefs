@@ -4,21 +4,12 @@ Pushing system preferences to this repo to make setting up a new machine easier.
 ## Current New Machine Setup:
 ### Via Download
 * [Google Backup and Sync](https://www.google.com/drive/download/)
+* [Box](https://uwmadison.account.box.com/login)
 * [Creative Cloud](https://www.adobe.com/creativecloud/desktop-app.html)
 * [Atom](https://atom.io/)
-* [Evernote](https://evernote.com/download)
-* [Focus](https://heyfocus.com/)
 * [Alfred](https://www.alfredapp.com/)
 * [iTerm2](https://www.iterm2.com/downloads.html)
 * [GPG Suite](https://gpgtools.org/) - don't forget to add private keys!
-
-
-## App Store - fill in via preference/purchase history.
-
-## Setup
-* Calendar/OSX accounts
-* Twitter accounts
-* Chrome accounts
 
 ## Dev Environment
 Start with [NPR Visuals Team setup guide.](http://blog.apps.npr.org/2013/06/06/how-to-setup-a-developers-environment.html)
